@@ -5,7 +5,7 @@ const replace = require('replace-in-file')
 
 const packageJson = require('./package.json')
 
-export function genFaviconsConfig(config = {}) {
+function genFaviconsConfig(config = {}) {
     const defaultBackground = '#000000'
     const defaultOffset = 5
 
@@ -65,7 +65,7 @@ export function genFaviconsConfig(config = {}) {
     return faviconsConfig
 }
 
-export function genFavicons(faviconPath, faviconsConfig) {
+function genFavicons(faviconPath, faviconsConfig) {
     const files = glob.sync(faviconPath)
 
     favicons(files[0], faviconsConfig, (error, response) => {
@@ -108,4 +108,9 @@ export function genFavicons(faviconPath, faviconsConfig) {
             console.error('Error occurred:', error)
         })
     })
+}
+
+module.exports = {
+    genFaviconsConfig,
+    genFavicons,
 }

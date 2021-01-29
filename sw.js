@@ -58,7 +58,7 @@ function getFilesToCache(indexPath = 'index.html', buildPath = 'dist') {
     return ['/', `/${indexPath}`, ...listAllFiles]
 }
 
-export function genSWFiles(regexes, indexPath, buildPath, showLogs) {
+function genSWFiles(regexes, indexPath, buildPath, showLogs) {
     fs.writeFile(`dist/swr.js`, swrText, (error) => {
         if (error) {
             console.error(error)
@@ -205,4 +205,8 @@ self.addEventListener('fetch', (event) => {
     )
 })
 `
+}
+
+module.exports = {
+    genSWFiles,
 }

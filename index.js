@@ -1,17 +1,17 @@
-import { genFaviconsConfig, genFavicons } from './favicons.js'
-import { genSWFiles } from './sw.js'
+const favicons = require('./favicons.js')
+const sw = require('./sw.js')
 
 function fullPWAPlugin(config = {}) {
     const faviconPath = config.faviconPath || './public/favicon.*'
 
-    const faviconsConfig = genFaviconsConfig(config.faviconsConfig)
+    const faviconsConfig = favicons.genFaviconsConfig(config.faviconsConfig)
 
     return {
         name: 'full-pwa',
 
         closeBundle() {
-            genSWFiles()
-            genFavicons(faviconPath, faviconsConfig)
+            sw.genSWFiles()
+            favicons.genFavicons(faviconPath, faviconsConfig)
         },
     }
 }

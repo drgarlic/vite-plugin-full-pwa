@@ -58,7 +58,7 @@ function getFilesToCache(indexPath = 'index.html', buildPath = 'dist') {
     return ['/', `/${indexPath}`, ...listAllFiles]
 }
 
-function genSWFiles(regexes, indexPath, buildPath, showLogs) {
+function genSWFiles(indexPath, buildPath, regexes, showLogs) {
     fs.writeFile(`dist/swr.js`, swrText, (error) => {
         if (error) {
             console.error(error)
@@ -67,7 +67,7 @@ function genSWFiles(regexes, indexPath, buildPath, showLogs) {
 
     fs.writeFile(
         `dist/sw.js`,
-        genSWText(regexes, getFilesToCache(indexPath, buildPath), showLogs),
+        genSWText(getFilesToCache(indexPath, buildPath), regexes, showLogs),
         (error) => {
             if (error) {
                 console.error(error)
@@ -84,7 +84,7 @@ function genSWFiles(regexes, indexPath, buildPath, showLogs) {
     })
 }
 
-function genSWText(regexes = {}, filesToPreCache, showLogs) {
+function genSWText(filesToPreCache, regexes = {}, showLogs = false) {
     return `
 const regexesOnlineFirst = ${regexes.onlineFirst || "[ '/api/' ]"}
     

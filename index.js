@@ -10,10 +10,16 @@ function fullPWAPlugin(config = {}) {
         name: 'full-pwa',
 
         closeBundle() {
-            sw.genSWFiles()
+            sw.genSWFiles(
+                config.indexPath,
+                config.buildPath,
+                config.swRegexes,
+                config.swShowLogs
+            )
             favicons.genFavicons(faviconPath, faviconsConfig)
         },
     }
 }
 
-export default fullPWAPlugin
+module.exports = fullPWAPlugin
+fullPWAPlugin.default = fullPWAPlugin

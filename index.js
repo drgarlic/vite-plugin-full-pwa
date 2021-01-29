@@ -4,6 +4,10 @@ const sw = require('./sw.js')
 function fullPWAPlugin(config = {}) {
     const faviconPath = config.faviconPath || './public/favicon.*'
 
+    const indexPath = config.indexPath || 'index.html'
+
+    const buildPath = config.buildPath || 'dist'
+
     const faviconsConfig = favicons.genFaviconsConfig(config.faviconsConfig)
 
     return {
@@ -11,8 +15,8 @@ function fullPWAPlugin(config = {}) {
 
         closeBundle() {
             sw.genSWFiles(
-                config.indexPath,
-                config.buildPath,
+                indexPath,
+                buildPath,
                 config.swRegexes,
                 config.swShowLogs
             )

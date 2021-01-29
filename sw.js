@@ -25,7 +25,7 @@ const swr = async () => {
 swr()
 `
 
-function getFilesToCache(indexPath = 'index.html', buildPath = 'dist') {
+function getFilesToCache(indexPath, buildPath) {
     const skip = []
 
     const flatDeep = (arr) =>

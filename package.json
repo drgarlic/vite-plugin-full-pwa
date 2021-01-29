@@ -1,0 +1,15 @@
+{
+  "name": "vite-plugin-full-pwa",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "author": {
+    "name": "Kevin Gawlik (gawlk)",
+    "url": "https://github.com/gawlk"
+  },
+  "dependencies": {
+    "favicons": "^6.2.0",
+    "glob": "^7.1.6",
+    "replace-in-file": "^6.1.0"
+  }
+}

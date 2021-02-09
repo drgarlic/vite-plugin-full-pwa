@@ -6,14 +6,15 @@ const replace = require('replace-in-file')
 const packageJson = require('./package.json')
 
 function genFaviconsConfig(config = {}) {
-    const defaultBackground = '#000000'
+    const defaultBackground = '#ffffff'
     const defaultOffset = 5
 
     const faviconsConfig = {
         path: config.path || '/favicons/',
 
         background: config.background || defaultBackground,
-        theme_color: config.themeColor || defaultBackground,
+        theme_color:
+            config.themeColor || config.background || defaultBackground,
         appleStatusBarStyle: config.appleStatusBarStyle || 'black-translucent',
 
         scope: config.scope || '/',

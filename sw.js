@@ -102,7 +102,7 @@ const regexesCacheOnly = ${regexes.cacheOnly || '[]'}
 const cacheName = 'cache-${packageJson.name}-${Date.now()}'
 
 const filesToPreCache = [
-${filesToPreCache.map((x) => "    '" + x + "'").join('\n')}
+${filesToPreCache.map((x) => "    '" + x + "'").join(',\n')}
 ]
 
 // console.log('sw: origin:', self.location.origin)

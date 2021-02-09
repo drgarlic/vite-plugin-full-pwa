@@ -1,15 +1,11 @@
 {
   "name": "vite-plugin-full-pwa",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "author": {
     "name": "Kevin Gawlik (gawlk)",
     "url": "https://github.com/gawlk"
   },
-  "files": [
-    "index.js",
-    "index.d.ts"
-  ],
   "main": "index.js",
   "types": "index.d.ts",
   "dependencies": {
